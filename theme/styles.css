@@ -1,0 +1,149 @@
+/* Custom Loop theme styles */
+
+:root {
+  --loop-blue: #0048ff;
+  --loop-purple: #6941c6;
+  --loop-dark: #121212;
+  --loop-light: #f8f9fb;
+  --loop-accent: #3cc9b7;
+  --loop-orange: #ff4d00;
+}
+
+/* Global styles */
+h1 {
+  font-weight: 700;
+  color: var(--loop-blue);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-weight: 600;
+  color: var(--loop-purple);
+}
+
+h3 {
+  font-weight: 500;
+  color: var(--loop-dark);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+li:before {
+  content: "→";
+  color: var(--loop-blue);
+  position: absolute;
+  left: -1.5rem;
+  font-weight: bold;
+}
+
+a {
+  color: var(--loop-blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+a:hover {
+  border-color: var(--loop-blue);
+}
+
+code {
+  background-color: #f0f3f9;
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+/* Slide layouts */
+.slidev-layout.cover {
+  background-image: linear-gradient(45deg, var(--loop-blue) 0%, var(--loop-purple) 100%);
+  color: white;
+}
+
+.slidev-layout.cover h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.slidev-layout.cover h2 {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.slidev-layout.default {
+  background-color: var(--loop-light);
+  color: var(--loop-dark);
+  padding: 2rem 4rem;
+}
+
+.slidev-layout.center {
+  background-color: var(--loop-light);
+  color: var(--loop-dark);
+}
+
+/* Code block styling */
+pre.slidev-code {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom components */
+.loop-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+.loop-gradient-text {
+  background: linear-gradient(45deg, var(--loop-blue), var(--loop-purple));
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.loop-callout {
+  background-color: rgba(0, 72, 255, 0.1);
+  border-left: 4px solid var(--loop-blue);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Footer with logo */
+.slidev-layout::after {
+  content: '';
+  background-image: url('/theme/loop-logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 80px;
+  height: 30px;
+  opacity: 0.7;
+}
+
+/* Transitions */
+.slidev-vclick-target {
+  transition: opacity 400ms ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
