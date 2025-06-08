@@ -30,6 +30,8 @@ jobs:
         
       - name: Build Slidev
         run: yarn build
+        env:
+          BASE_URL: /tech-team-presentations/
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

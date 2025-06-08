@@ -1,9 +1,8 @@
 import svgLoader from 'vite-svg-loader'
 import { defineConfig } from 'vite'
 
-// Determine base path based on environment
-const isGitHubPages = process.env.GITHUB_ACTIONS === 'true'
-const base = isGitHubPages ? '/tech-team-presentations/' : '/'
+// Determine base path from environment variable or use default
+const base = process.env.BASE_URL || '/'
 
 export default defineConfig({
   plugins: [svgLoader()],
