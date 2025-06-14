@@ -3,17 +3,17 @@ layout: text-image
 media: "https://media.licdn.com/dms/image/v2/D5622AQESxK8CUlx96A/feedshare-shrink_2048_1536/B56ZarUlpbGkAo-/0/1746631024384?e=1752105600&v=beta&t=DpBE6uHJuOtcoITA-eTPgyQ9iZw1YnWg-d82y4D77d8"
 ---
 
-# The Loop Engineering Team
+# The Loop Tech Team
 
-A diverse team of ~10 engineers building global financial infrastructure
+A lean (but mighty!) team of ~10 engineers building global financial infrastructure
 
-- **Full-Stack Engineers**: Building seamless experiences across our platform
+**Full-Stack Engineers**: Building seamless experiences across our platform
 
-- **Payment Backend Specialists**: Ensuring reliability and compliance
+**Payment Backend Specialists**: Ensuring reliability and compliance
 
-- **Frontend Experts**: Creating intuitive user interfaces
+**Frontend Experts**: Creating intuitive user interfaces
 
-- **Senior Technical Leaders**: Guiding architecture and best practices
+**Senior Technical Leaders**: Guiding architecture and best practices
 
 
 <!--

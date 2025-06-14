@@ -2,30 +2,18 @@
 layout: default
 ---
 
-# Introducing Temporal
+# Key Temporal Concepts
 
-### A Better Way to Build Reliable Applications
+#### The Building Blocks of Durable Execution
 
-```
-┌────────────────────────────────────┐
-│ Think of Temporal As...            │
-│ ├── A reliability layer for code   │
-│ ├── Error handling on steroids     │
-│ ├── State management that works    │
-│ └── The "undo" button for failures │
-└────────────────────────────────────┘
-```
+| **Concept** | **What It Does** | **Why It Matters** |
+|---|---|---|
+| **Workflows** | Long-running business processes | Maintains execution state across crashes |
+| **Activities** | Individual units of work | Can be retried independently |
+| **Event History** | Complete audit trail of execution | Debug and track every step like Git |
+| **Workers** | Process pools executing your code | Scale horizontally without complexity |
 
-### What It Does For Us
-
-- **Makes regular Ruby code** reliable and crash-proof
-- **Remembers exactly where things stopped** if servers crash
-- **Shows a timeline** of everything that happened (like Git history)
-- **Retries automatically** when things go wrong
-- **Cleans up properly** when failures can't be fixed
-
-
-> "Imagine if your code could survive any crash or failure and just keep working."
+> "Temporal separates *what* gets done from *how* it gets done, making business logic resilient to infrastructure failures"
 
 <!--
 **What Temporal Actually Is:**

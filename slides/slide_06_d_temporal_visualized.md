@@ -2,33 +2,31 @@
 layout: default
 ---
 
-# How Temporal Helps Us
+# Sidekiq vs. Temporal: Why It Matters
 
-## What Makes It Different From Sidekiq
+#### When Task2 Fails: Two Different Worlds
 
-```ruby
-# Sidekiq Workflow
-[Start] → Task1 → Task2 → Task3 → Task4 → [Complete]
-          ✓      ✗→✓     ✓       ✓
-                   |
-                 retry
-```
+| **Sidekiq** | **Temporal** |
+|---|---|
+| ❌ Retries the individual job | ✅ Remembers the entire workflow context |
+| ❌ Loses progress if worker crashes | ✅ Continues from exact failure point |
+| ❌ No built-in workflow visibility | ✅ Full history and state inspection |
+| ❌ Manual compensation for partial failures | ✅ Automated compensation patterns |
 
-```ruby
-# Temporal Workflow
-[Start] → Task1 → Task2 → Task3 → Task4 → [Complete]
-          ✓      ✗→✓     ✓       ✓
-                   |
-                 retry
-```
+> **Real-World Impact**: When a payment capture failed with Sidekiq, we often had to manually reconcile accounts. With Temporal, the system automatically handles failure and continues the transaction exactly where it left off.
 
-### Temporal Advantages
+<!--
+Image Prompt for Eraser:
 
-✅ **Records execution history step-by-step**
+Create a side-by-side comparison diagram showing two workflows processing a payment transaction. 
 
-✅ **Continues exactly where it left off after failure**
+Left side labeled "SIDEKIQ": Show 5 connected boxes in a workflow (Account Check → FX Rate → Compliance → Capture → Settle) with the middle box (Compliance) colored red with an X. Below it, show a "retry" arrow going back just to that box, with a small explosion icon and text "State lost between retries".
 
-✅ **Shows entire workflow status in real-time**
+Right side labeled "TEMPORAL": Show the same 5 connected boxes, with Compliance also marked with an X, but show a "retry" arrow that maintains a connection to a "Workflow History" database below. Include text "Continues with full context".
+
+Use professional fintech-style graphics with a clean, modern look suitable for a business presentation.
+-->
+
 
 <!--
 **Explaining the Architecture:**

@@ -2,12 +2,14 @@
 layout: default
 ---
 
-# Join Our Team
+# Come Build Cool Stuff With Us!
 
-**Loop Card** is building the future of business payments using Temporal
+We're tackling hard fintech problems with modern tech (and we're pretty fun to work with)
 
-- **Tech Stack:** Ruby, Temporal, Microservices
-- **Mission:** Better financial infrastructure for Canadian businesses
-- **Contact:** careers@loop.com | loopcard.ca/careers
-- **Learn More:** Find me after the talk
-- **Connect:** yan@bankonloop.com
+**The Stack:** Ruby, Temporal, and other shiny toys 🛠️
+
+**The Mission:** Financial infrastructure that doesn't suck for Canadian businesses
+
+**The Team:** Smart, kind people who love solving problems
+
+**Want to Chat?** Find me after the talk or drop me a line at yan@bankonloop.com

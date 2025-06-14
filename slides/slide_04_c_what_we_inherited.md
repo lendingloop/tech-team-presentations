@@ -2,13 +2,13 @@
 layout: text-window
 ---
 
-# Our Starting Point: The Original System
+# Where Even Good Code Falls Short
 
-A traditional approach causes multiple problems when handling critical financial flows:
+When processing millions in payments, even well-engineered systems face fundamental challenges:
 
-- **Race conditions**: Jobs run independently with no coordination
-- **Incomplete error handling**: No automated recovery process
-- **No visibility**: Difficult to track which step failed in the process
+**Business Continuity**: Despite retries, we still needed a human to resolve complex failure scenarios
+
+**Traceability Gaps**: Tracking the exact state of multi-step transactions across system boundaries required custom tooling
 
 ::window::
 ```ruby

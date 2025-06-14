@@ -4,7 +4,7 @@ layout: default
 
 # Why Payments Are Complicated
 
-### Technical Challenges
+#### Technical Challenges
 
 🔄 **Multiple Systems Working Together**: Like an orchestra where every instrument must play perfectly in sync
 

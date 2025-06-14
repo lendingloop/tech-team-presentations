@@ -2,15 +2,15 @@
 layout: default
 ---
 
-# How Temporal Helps Us
+# What This Means for Our Money Flows
 
-## What Makes It Different From Sidekiq
+#### The Real-World Impact
 
-## Benefits for Our Payment System
+**Self-healing**: Systems that fix themselves (no more 3AM pages!)
 
-- **Self-healing**: Automatically recovers from failures
-- **Visibility**: See exactly where a payment is in the process
-- **Consistency**: Never leaves payments in a half-completed state
+**X-ray vision**: Track every dollar through the entire journey
+
+**Rock-solid reliability**: Never again explain to customers why their money is in limbo
 
 <!--
 **Explaining the Architecture:**

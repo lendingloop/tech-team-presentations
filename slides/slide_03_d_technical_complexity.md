@@ -4,14 +4,14 @@ layout: default
 
 # Why Payments Are Complicated
 
-### The Perfect World Solution Would Need To:
+#### The Perfect World Solution Would Need To:
 
 - Coordinate all steps perfectly
 - Automatically fix any failures
 - Track every action
 - Work across different currencies
 
-### What We Needed to Solve This:
+#### What We Needed to Solve This:
 
 - A reliable system for maintaining complete transaction integrity
 - Smart handling of failures at any step

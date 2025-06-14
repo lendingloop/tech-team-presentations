@@ -2,29 +2,49 @@
 layout: text-window
 ---
 
-# Our Starting Point: The Original System
+# Our Original Implementation: Robust But Limited
 
-A standard Rails app with background jobs handling each currency exchange step
+A well-architected Rails system with state machines and Sidekiq orchestration.
 
-Each job operates independently with no knowledge of overall workflow state
-If any job fails, there's no automated way to recover the process or fix the state
+**The Challenges We Still Faced:**
+- Long-running processes exceeding Sidekiq timeouts
+- Error recovery requiring complex custom code
+- State scattered across databases, Redis, and external partners
 
 ::window::
 ```ruby
-class CurrencyExchangeJob < ApplicationJob
-    def perform(from_currency, to_currency, amount)
-      # Start the currency exchange process
-      # No coordination with other jobs
-    end
+# A solid Rails implementation with proper patterns
+class PaymentOrchestrator
+  def process_exchange(from_currency, to_currency, amount)
+    transaction = Transaction.create!(state: "initiated")
+    ExchangeProcessor.perform_async(transaction.id)
+  end
 end
 
-class AccountVerificationJob < ApplicationJob 
-class BankingPartnerSelectionJob < ApplicationJob 
-class FxRateProcessingJob < ApplicationJob 
-class CrossBorderTransferJob < ApplicationJob 
-class ComplianceCheckJob < ApplicationJob 
-class LedgerUpdateJob < ApplicationJob 
-class SettlementProcessingJob < ApplicationJob
+class ExchangeProcessor
+  include Sidekiq::Worker
+  sidekiq_options retry: 3
+  
+  def perform(transaction_id)
+    transaction = Transaction.find(transaction_id)
+    
+    # Track state progression with state machine
+    begin
+      transaction.with_lock do
+        case transaction.state
+        when "initiated"
+          verify_account(transaction)
+        when "verified"
+          select_banking_partner(transaction)
+        # More states and transitions...
+        end
+      end
+    rescue => e
+      # Complex error handling...
+      transaction.update!(state: "failed", error: e.message)
+    end
+  end
+end
 ```
 
 

@@ -3,15 +3,15 @@ layout: text-image
 media: "https://media.licdn.com/dms/image/v2/D5622AQEVEyGm6TeKCA/feedshare-shrink_2048_1536/B56ZdB4U7LGoAo-/0/1749156975103?e=1752105600&v=beta&t=b2DgyfGoNUuGjXXmDoqbQ1MCxAb1CGOGwv1Kw1dI4b8"
 ---
 
-# The Loop Engineering Values
+# How We Roll at Loop
 
-- **Moving fast but thoughtfully** - We embrace startup speed but make decisions with care
+**Moving fast but thoughtfully** - We embrace startup speed but make decisions with care
 
-- **Radical transparency** - We share information openly and communicate directly
+**Radical transparency** - We share information openly and communicate directly
 
-- **Customer obsession** - We're deeply connected to the businesses we serve
+**Customer obsession** - We're deeply connected to the businesses we serve
 
-- **Continuous improvement** - We're never satisfied with the status quo
+**Continuous improvement** - We're never satisfied with the status quo
 
 <!--
 **Speaker Notes:**

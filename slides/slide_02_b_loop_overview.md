@@ -6,14 +6,13 @@ media: "https://cdn.prod.website-files.com/649c656c7021775bc23956d6/673cfa556055
 # Loop Solutions
 
 Complete financial toolkit for global business
+*(Think of it as a Swiss Army knife for your company's money)*
 
 - **Global Visa**: Multi-currency credit card
 
 - **Global Banking**: US, UK & EU accounts with local payment networks
 
 - **Payments**: Send to 180+ countries in 40+ currencies
-
-- **FX**: Best exchange rates with no hidden markups
 
 - **Expense Management**: Issue cards to team members with spending controls
 

@@ -2,19 +2,14 @@
 layout: default
 ---
 
-# Getting Started with Temporal
+# Want to Sleep Better at Night?
 
-## Begin Your Journey
+#### Here's How to Get Started with Temporal
 
-- **Official Temporal Documentation**: temporal.io/docs
-- **SDK for Ruby**: github.com/temporalio/sdk-ruby
-- **Sample Code**: github.com/loopfintech/temporal-examples
-- **Contact for Follow-up**: yan@bankonloop.com
+**Official Temporal Documentation**: temporal.io/docs
 
+**SDK for Ruby**: github.com/temporalio/sdk-ruby
 
-## Best Use Cases
+**Presentation**: github.com/loopfintech/tech-team-presentations
 
-✅ Multi-step business processes  
-✅ Critical reliability needs  
-✅ Complex error handling  
-✅ Long-running workflows
+**Contact for Follow-up**: yan@bankonloop.com

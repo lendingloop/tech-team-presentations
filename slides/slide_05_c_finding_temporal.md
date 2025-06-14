@@ -2,20 +2,17 @@
 layout: default
 ---
 
-# Finding the Right Workflow Solution
+# Our Solution Showdown
 
-## Solutions We Evaluated
+#### The Finalists in Our Evaluation
 
-- **Saga Patterns**: Manual implementation
-- **Kafka Streams**: Event-sourcing approach
-- **AWS Step Functions**: Serverless orchestration
-- **Conductor**: Netflix's orchestrator
-- **Camunda**: BPMN-based solution
-- **Temporal**: Uber & Durable Execution framework
+| **Solution** | **Key Strength** | **Deal-Breaker** |
+|---|---|---|
+| **AWS Step Functions** | Fully managed | AWS lock-in |
+| **Kafka Streams** | High throughput | Complex state management |
+| **Temporal** | ✅ **Durable execution + Ruby SDK** | Higher learning curve |
 
-> "Temporal turned out to be the best balance of developer experience and operational reliability"
-
-*Used in production at Uber, Netflix, Stripe, Datadog, and more*
+> "For a Ruby team handling payments, Temporal offered exactly what we needed - reliability without rewriting our core services"
 
 <!--
 **The Mandate:**

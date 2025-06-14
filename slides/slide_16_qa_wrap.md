@@ -2,15 +2,17 @@
 layout: default
 ---
 
-# Questions & Discussion
+# Your Turn to Grill Me!
 
-## Let's Discuss
+## Let's Chat About...
 
-- Your payment processing experiences
-- Questions about our implementation
-- Interest in Temporal or Loop Card
+Your payment system horror stories (we've all got them)
 
-> **Thank you for attending!**
+Burning questions about our Temporal implementation
+
+How this might apply to your own reliability challenges
+
+> **Thanks for hanging out! You've been a fantastic audience.**
 
 <!--
 Wrap-up:

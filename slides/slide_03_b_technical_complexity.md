@@ -1,24 +1,19 @@
 ---
-layout: default
+layout: text-image
+media: "transaction_life.png"
 ---
 
-# Payment Complexity: What's Really Happening?
+# The Money Journey: Behind the Curtain
 
-### What Actually Happens Behind the Scenes:
+#### Your $5,000 embarks on quite the adventure
 
-- **Account Verification**: Confirm balance availability and transaction limits
+**Validation & Routing**: Verify balances, limits, and select optimal banking partners
 
-- **Banking Partner Selection**: Route through optimal Canadian banking partners
+**Currency Operations**: Lock in exchange rates and calculate appropriate fees
 
-- **Currency Conversion**: Find real-time CAD/USD exchange rate and lock it in
+**Cross-Border Orchestration**: Coordinate transfers between international banking systems
 
-- **FX Fee Calculation**: Apply appropriate fee structure based on account type
-
-- **Cross-Border Transfer**: Coordinate with our US banking partners
-
-- **Ledger Updates**: Record multiple transactions across different ledgers
-
-- **Settlement Processing**: Ensure final settlement between banking partners
+**Financial Record-Keeping**: Update multiple ledgers and ensure final settlement
 
 
 <!--

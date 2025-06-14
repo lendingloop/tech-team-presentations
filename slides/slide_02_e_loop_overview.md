@@ -2,9 +2,9 @@
 layout: default
 ---
 
-# Loop Architecture: Past, Present & Future
+# Our Tech Stack Evolution
 
-### Current Architecture
+#### Where We Started (AKA The Classic Ruby Stack)
 
 🛤️ **Ruby on Rails** - Core application since 2021  
 
@@ -15,15 +15,15 @@ layout: default
 🚢 **Heroku** - Hosting & deployment platform  
 
 
-### Challenges With Current Setup
+#### Challenges Even for Experienced Rails Teams
 
-🔥 **Scaling limitations** with Heroku
+🧵 **Complex workflows spanning multiple services** that Sidekiq alone couldn't orchestrate
 
-💰 **Cost inefficiencies** at our growth stage
+🕒 **Long-running transactions** that exceed typical background job time windows
 
-⚙️ **Limited infrastructure control**
+🔎 **Workflow visibility gaps** across distributed job processing
 
-🏗️ **Monolithic architecture** bottlenecks
+🔄 **Reliability at scale** as transaction volume grew exponentially
 
 <!--
 **Current Architecture:**

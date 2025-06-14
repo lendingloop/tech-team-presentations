@@ -2,15 +2,15 @@
 layout: default
 ---
 
-# Lessons & Recommendations
+# Our Hard-Earned Wisdom
 
-## Key Takeaways
+#### So You Don't Have to Learn the Hard Way
 
-| **What Worked Well** | **What We'd Do Differently** |
+| **What Worked Like a Charm** | **What We'd Do Differently** |
 |---|---|
 | Start with simple workflows | More upfront team training |
 | Local dev environment focus | Better monitoring from day one |
 | Temporal Cloud > self-hosted | Document patterns earlier |
 | Testing with Temporal SDK | More gradual service migration |
 
-> **Most Important Lesson**: The learning curve is real but absolutely worth it
+> **The Bottom Line**: Yes, there's a learning curve, but it's like learning to ride a bike—painful at first, then you wonder how you ever lived without it.

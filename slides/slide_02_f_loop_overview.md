@@ -2,17 +2,19 @@
 layout: default
 ---
 
-# Loop Architecture: Past, Present & Future
+# Where We're Heading
 
-### Future Architecture
+#### Our Evolution: Modular, Resilient, Scalable
 
-🌐 **ECS Farget** deployment
+🌐 **ECS Fargate** - Infrastructure-as-code with multi-region redundancy
 
-🧩 **Domains services** for payment processing
+🧩 **Domain-Driven Microservices** - Payment processing broken into bounded contexts
 
-⚡ **Event-driven** architecture
+⚡ **Event-Driven Architecture** - Async communication via event streams
 
-📈 **Horizontal scaling** for high-volume periods
+🗡️ **Temporal as Orchestration Layer** - Reliable coordination across services
+
+📈 **Auto-Scaling** - Dynamically handle 10x transaction spikes
 
 
 <!--

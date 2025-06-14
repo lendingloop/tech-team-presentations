@@ -170,10 +170,6 @@ src: ./slides/slide_07_payment_workflow.md
 src: ./slides/slide_09_section.md
 ---
 
---- 
-src: ./slides/slide_09_a_demo_setup.md
----
-
 ---
 src: ./slides/slide_14_section.md
 ---

@@ -2,11 +2,11 @@
 layout: default
 ---
 
-# The Problem With Traditional Systems
+# Why Traditional Systems Keep Us Up at Night
 
-## What Makes Background Jobs Fail?
+#### The Recurring Nightmares of Background Jobs
 
-### Current Approach in Most Systems
+**The Usual Suspects**
 
 ❌ State stored in regular database
 

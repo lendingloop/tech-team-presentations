@@ -5,9 +5,9 @@ media: https://images.ctfassets.net/0uuz8ydxyd9p/3q2myxzg0G6pruZM7v18ed/9fe74287
 
 # What is Temporal?
 
-### A Workflow Engine for Reliable Apps
+#### Our Knight in Shining Armor
 
-Temporal is an open-source platform that makes building reliable applications simple.
+Temporal is an open-source platform that makes building reliable applications actually, well... reliable.
 
 - **Workflow:** Your business logic that runs reliably, even if servers crash
 - **Activity:** Individual tasks that can be retried automatically

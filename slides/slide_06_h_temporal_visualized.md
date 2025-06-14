@@ -2,15 +2,16 @@
 layout: default
 ---
 
-# Introducing Temporal
+# Advanced Temporal Features
 
-## Before vs. After: Same Code, New Superpowers
+#### Beyond Just Reliability
 
-### This simple Ruby code can now:
-- Survive server crashes and restarts
-- Retry failed steps automatically
-- Maintain state across weeks or months
-- Provide complete audit trails
-- Handle compensation (rollbacks) automatically
+| **Feature** | **Real-World Benefit** |
+|---|---|
+| **Signals & Queries** | Interact with running workflows (e.g., cancel a payment mid-flow) |
+| **Child Workflows** | Compose complex processes from simpler building blocks |
+| **Saga Patterns** | Automatic compensation when things go wrong (built-in rollback) |
+| **Versioning** | Deploy changes without disrupting in-flight workflows |
+| **Cron Workflows** | Scheduled execution with failure guarantees (unlike cron jobs) |
 
 <!-- Speaker notes: Explaining Temporal core concepts and how it provides reliability for business logic. -->

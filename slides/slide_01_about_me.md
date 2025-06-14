@@ -9,12 +9,15 @@ twitterUrl: "https://x.com/ymatagne"
 
 # Yan Matagne
 
-Engineering Leader at <a href="https://www.getloop.ca/">Loop</a> <uim-rocket class="text-1xl text-green-400 mx-2" />
+#### Engineering Leader at <a href="https://www.getloop.ca/">Loop</a> <uim-rocket class="text-1xl text-green-400 mx-2" />
 
-- 🍁 Toronto location with Raptors reference
-- ⚡ 10+ years of fintech and blockchain
-- ❤️ Customer Value driver
-- 👥 Team building, empowering team
+🍁 Back to Ruby... after a traumatic experience
+
+⚡ 10+ years wrangling money through code (fintech & blockchain)
+
+❤️ Obsessed by delivering customer value
+
+👥 Building teams that ship reliable, impactful systems
 
 <!--
 **Personal Background:**

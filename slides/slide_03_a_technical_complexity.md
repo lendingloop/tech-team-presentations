@@ -2,16 +2,17 @@
 layout: default
 ---
 
-# Payment Complexity: What's Really Happening?
+# Payment Complexity: The Iceberg Under the Surface
 
-### Sounds Simple:
+#### Customer Request (Sounds Simple):
 
+> "Just exchange $5,000 CAD to USD in my Loop account"
 
-> "Exchange $5,000 CAD to USD in my Loop account"
+#### The Hidden Reality:
 
-### The Hidden Complexity:
+That single button click triggers **multiple actions** and **multiple transactions** across multiple systems, banking networks, regulatory checks, and international boundaries.
 
-What looks like 1 simple transaction to the user is actually **7+ separate transactions** across multiple systems, banks, and countries.
+**Each with its own failure modes, timeout risks, and consistency requirements.**
 
 <!--
 **The Complexity:**

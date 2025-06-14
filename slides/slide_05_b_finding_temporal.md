@@ -4,16 +4,19 @@ layout: default
 
 # Finding the Right Workflow Solution
 
-## Why We Chose Temporal
+#### Why We Chose Temporal
 
-1. **Production-ready Ruby SDK**  
-   No need to rewrite existing services
+**Production-ready Ruby SDK** - *No need to rewrite existing services*
 
-2. **Time-travel debugging**  
-   See exactly what happened at each step
+**Time-travel debugging** - *See exactly what happened at each step*
 
-3. **Automatic compensation**  
-   Solved our partial failure problem
+**Automatic compensation** - *Solved our partial failure problem*
+
+**Durable execution guarantees** - *Workflows resume exactly where they left off*
+
+**Built-in versioning** - *Deploy changes without disrupting in-flight transactions*
+
+**Horizontal scalability** - *Handles our growth without breaking a sweat*
 
 <!--
 **The Mandate:**

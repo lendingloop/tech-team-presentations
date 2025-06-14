@@ -1,25 +1,27 @@
 ---
-layout: default
+layout: text-window
 ---
 
-# Introducing Temporal
+# Temporal's Ruby SDK
 
-## Before vs. After: Same Code, New Superpowers
+> "Under the hood: Your activities execute as separate processes that can retry independently"
 
+::window::
 ```ruby
-# This normal-looking Ruby code...
-def process_payment(payment_data)
-  validate_transaction(payment_data)
-  rate = get_exchange_rate(payment_data)
-  auth = authorize_payment(payment_data, rate)
-  run_compliance_checks(payment_data)
-  capture_payment(auth)
-  update_ledgers(payment_data)
-  send_notifications(payment_data)
+# Define your workflow logic
+class PaymentWorkflow < Temporal::Workflow
+  def execute(payment_data)
+    # Activities are executed on remote workers
+    verify = activity.verify_account(payment_data)
+    rate = activity.get_exchange_rate(payment_data)
+    auth = activity.authorize_payment(payment_data, rate)
+    
+    # Failures at any point will resume right here
+    activity.capture_payment(auth)
+    activity.update_ledgers(payment_data)
+  end
 end
-# ...becomes crash-proof, reliable, and observable
 ```
-
 <!--
 **What Temporal Actually Is:**
 For those who haven't seen Temporal before, think of it as reliability infrastructure for your business logic.

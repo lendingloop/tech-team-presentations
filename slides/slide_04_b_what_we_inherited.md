@@ -2,12 +2,13 @@
 layout: text-window
 ---
 
-# Our Starting Point: The Original System
+# Real-World Challenges We Faced
 
-The implementation is naive and fragile. Each job is enqueued separately
-with no state tracking between steps in the process.
+Despite following best practices, our system showed cracks at scale.
 
-All error handling is manual and process recovery requires human intervention.
+**Visibility Problem**: When transactions failed halfway through, finding the exact failure point across distributed services required intense detective work.
+
+**Recovery Headaches**: Even with retry mechanisms, inconsistent states between systems meant frequent manual intervention.
 
 ::window::
 ```ruby

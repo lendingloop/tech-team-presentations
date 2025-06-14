@@ -2,21 +2,21 @@
 layout: default
 ---
 
-# Finding the Right Workflow Solution
+# The Search for a Better Way
 
-## Our Key Requirements
+#### What We Desperately Needed
 
-✓ **Reliable Coordination**: Manage communication across multiple services
+✓ **Reliable Coordination**: Orchestrate multiple services without losing track
 
-✓ **Automatic Recovery**: Fix problems when steps fail
+✓ **Self-Healing Systems**: Recover automatically when things break
 
-✓ **Complete Visibility**: See exactly what's happening at each step
+✓ **X-Ray Vision**: See exactly where money is at every moment
 
-✓ **Strong Consistency**: Guarantee data accuracy throughout the process
+✓ **Bulletproof Consistency**: No more "it worked on my machine"
 
-✓ **Ruby Integration**: Work with our existing Ruby codebase
+✓ **Ruby-Friendly**: Play nice with our existing Ruby investments
 
-✓ **Manageable Complexity**: Not require a huge operational team
+✓ **Pragmatic Complexity**: Doable without an army of DevOps engineers
 
 <!--
 **The Mandate:**
