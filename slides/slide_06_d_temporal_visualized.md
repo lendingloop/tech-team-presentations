@@ -6,23 +6,29 @@ layout: default
 
 ## What Makes It Different From Sidekiq
 
+```ruby
+# Sidekiq Workflow
+[Start] → Task1 → Task2 → Task3 → Task4 → [Complete]
+          ✓      ✗→✓     ✓       ✓
+                   |
+                 retry
 ```
-┌──────────────────────────────────────────────────────┐
-│          Temporal Workflow Timeline                   │
-├──────┬──────┬─────────┬───────┬────────┬─────────────┤
-│ Start│ Task1│ Task2   │ Task3 │ Task4  │ Complete    │
-│      │  OK  │ FAIL→OK │  OK   │   OK   │             │
-└──────┴──────┴─────────┴───────┴────────┴─────────────┘
-         │       ↑↓       │        │           │
-         │      Retry     │        │           │
-         └───────┴───────┴────────┘           │
-                                               ↓
-┌────────────────────────────────────────────────────────┐
-│ ✅ Records execution history step-by-step              │
-│ ✅ Continues exactly where it left off after failure   │
-│ ✅ Shows entire workflow status in real-time           │
-└────────────────────────────────────────────────────────┘
+
+```ruby
+# Temporal Workflow
+[Start] → Task1 → Task2 → Task3 → Task4 → [Complete]
+          ✓      ✗→✓     ✓       ✓
+                   |
+                 retry
 ```
+
+### Temporal Advantages
+
+✅ **Records execution history step-by-step**
+
+✅ **Continues exactly where it left off after failure**
+
+✅ **Shows entire workflow status in real-time**
 
 <!--
 **Explaining the Architecture:**

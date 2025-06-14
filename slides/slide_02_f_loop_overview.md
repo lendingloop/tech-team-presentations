@@ -6,11 +6,14 @@ layout: default
 
 ### Future Architecture
 
-- 🌐 **ECS Farget** deployment
-- 🧩 **Domains services** for payment processing
-- ⚡ **Event-driven** architecture
-- 📈 **Horizontal scaling** for high-volume periods
-- 🔄 **Temporal** as orchestration backbone
+🌐 **ECS Farget** deployment
+
+🧩 **Domains services** for payment processing
+
+⚡ **Event-driven** architecture
+
+📈 **Horizontal scaling** for high-volume periods
+
 
 <!--
 **Current Architecture:**

@@ -6,6 +6,7 @@ layout: default
 
 ### Sounds Simple:
 
+
 > "Exchange $5,000 CAD to USD in my Loop account"
 
 ### The Hidden Complexity:

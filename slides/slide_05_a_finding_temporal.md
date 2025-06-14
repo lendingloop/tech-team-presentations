@@ -6,17 +6,17 @@ layout: default
 
 ## Our Key Requirements
 
-- ✓ **Reliable Coordination**: Manage communication across multiple services
+✓ **Reliable Coordination**: Manage communication across multiple services
 
-- ✓ **Automatic Recovery**: Fix problems when steps fail
+✓ **Automatic Recovery**: Fix problems when steps fail
 
-- ✓ **Complete Visibility**: See exactly what's happening at each step
+✓ **Complete Visibility**: See exactly what's happening at each step
 
-- ✓ **Strong Consistency**: Guarantee data accuracy throughout the process
+✓ **Strong Consistency**: Guarantee data accuracy throughout the process
 
-- ✓ **Ruby Integration**: Work with our existing Ruby codebase
+✓ **Ruby Integration**: Work with our existing Ruby codebase
 
-- ✓ **Manageable Complexity**: Not require a huge operational team
+✓ **Manageable Complexity**: Not require a huge operational team
 
 <!--
 **The Mandate:**

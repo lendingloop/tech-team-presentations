@@ -7,17 +7,23 @@ layout: default
 ### Current Architecture
 
 🛤️ **Ruby on Rails** - Core application since 2021  
+
 🔄 **Sidekiq** - Background job processing  
+
 📊 **PostgreSQL** - Primary data store  
+
 🚢 **Heroku** - Hosting & deployment platform  
 
 
 ### Challenges With Current Setup
 
-- 🔥 **Scaling limitations** with Heroku
-- 💰 **Cost inefficiencies** at our growth stage
-- ⚙️ **Limited infrastructure control**
-- 🏗️ **Monolithic architecture** bottlenecks
+🔥 **Scaling limitations** with Heroku
+
+💰 **Cost inefficiencies** at our growth stage
+
+⚙️ **Limited infrastructure control**
+
+🏗️ **Monolithic architecture** bottlenecks
 
 <!--
 **Current Architecture:**

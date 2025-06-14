@@ -8,10 +8,13 @@ layout: default
 
 ### Current Approach in Most Systems
 
-- ❌ State stored in regular database
-- ❌ Progress lost if server crashes
-- ❌ Developers must write retry logic
-- ❌ Custom code needed to fix failures
+❌ State stored in regular database
+
+❌ Progress lost if server crashes
+
+❌ Developers must write retry logic
+
+❌ Custom code needed to fix failures
 
 <!--
 **Explaining the Architecture:**

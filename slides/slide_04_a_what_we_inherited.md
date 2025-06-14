@@ -1,31 +1,31 @@
 ---
-layout: default
+layout: text-window
 ---
 
 # Our Starting Point: The Original System
 
-### How We Originally Built It
+A standard Rails app with background jobs handling each currency exchange step
 
-```
-┌──────────────────────────────────────────────────┐
-│                Rails Application                 │
-│  ┌─────────────────────────────────────────────┐ │
-│  │                Sidekiq Jobs                 │ │
-│  │                                             │ │
-│  │  CurrencyExchangeJob                        │ │
-│  │  AccountVerificationJob                     │ │
-│  │  BankingPartnerSelectionJob                 │ │
-│  │  FxRateProcessingJob                        │ │
-│  │  CrossBorderTransferJob                     │ │
-│  │  ComplianceCheckJob                         │ │
-│  │  LedgerUpdateJob                            │ │
-│  │  SettlementProcessingJob                    │ │
-│  │                                             │ │
-│  └─────────────────────────────────────────────┘ │
-└──────────────────────────────────────────────────┘
-```
+Each job operates independently with no knowledge of overall workflow state
+If any job fails, there's no automated way to recover the process or fix the state
 
-*A standard Rails app with background jobs handling each currency exchange step*
+::window::
+```ruby
+class CurrencyExchangeJob < ApplicationJob
+    def perform(from_currency, to_currency, amount)
+      # Start the currency exchange process
+      # No coordination with other jobs
+    end
+end
+
+class AccountVerificationJob < ApplicationJob 
+class BankingPartnerSelectionJob < ApplicationJob 
+class FxRateProcessingJob < ApplicationJob 
+class CrossBorderTransferJob < ApplicationJob 
+class ComplianceCheckJob < ApplicationJob 
+class LedgerUpdateJob < ApplicationJob 
+class SettlementProcessingJob < ApplicationJob
+```
 
 
 <!--

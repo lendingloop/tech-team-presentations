@@ -6,17 +6,17 @@ layout: default
 
 ### Technical Challenges
 
-- 🔄 **Multiple Systems Working Together**: Like an orchestra where every instrument must play perfectly in sync
+🔄 **Multiple Systems Working Together**: Like an orchestra where every instrument must play perfectly in sync
 
-- ⏱️ **Time-Sensitive Processes**: Some steps happen in milliseconds, others take days to complete
+⏱️ **Time-Sensitive Processes**: Some steps happen in milliseconds, others take days to complete
 
-- ❌ **Handling Failures**: If one step breaks, we need to safely undo everything or fix it
+❌ **Handling Failures**: If one step breaks, we need to safely undo everything or fix it
 
-- 🔎 **Complete Tracking Required**: Every cent must be accounted for at every moment
+🔍 **Complete Tracking Required**: Every cent must be accounted for at every moment
 
-- 💰 **No Double-Charging**: Systems must ensure money is never moved twice by mistake
+💰 **No Double-Charging**: Systems must ensure money is never moved twice by mistake
 
-- 🌐 **Currency Complications**: Adding different currencies multiplies the complexity
+🌐 **Currency Complications**: Adding different currencies multiplies the complexity
 
 
 <!--

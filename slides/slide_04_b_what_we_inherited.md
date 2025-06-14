@@ -1,22 +1,38 @@
 ---
-layout: default
+layout: text-window
 ---
 
 # Our Starting Point: The Original System
 
-## Code That Looked Good But Had Problems
+The implementation is naive and fragile. Each job is enqueued separately
+with no state tracking between steps in the process.
 
+All error handling is manual and process recovery requires human intervention.
+
+::window::
 ```ruby
-# Main function - no coordination with background jobs
 def exchange_currency(account_id, from_currency, to_currency, amount)
-  # Get exchange rate and move money
-  rate = get_exchange_rate(from_currency, to_currency)
-  process_transfer(account_id, amount, rate)
+  # Verify account exists and has sufficient funds
+  account = Account.find(account_id)
+  raise InsufficientFundsError unless account.has_funds?(from_currency, amount)
   
-  # Queue background job for ledger updates
-  TransferProcessingJob.perform_later(account_id)
+  # Create a transaction record
+  transaction = Transaction.create!(
+    account: account,
+    from_currency: from_currency,
+    to_currency: to_currency,
+    amount: amount,
+    status: 'pending'
+  )
   
-  "Success!"
+  # Enqueue jobs with no coordination between them
+  CurrencyExchangeJob.perform_later(transaction.id)
+  
+  # What if any of these jobs fail? No automatic recovery
+  FxRateProcessingJob.perform_later(transaction.id)
+  LedgerUpdateJob.perform_later(transaction.id)
+  
+  transaction.id
 rescue => e
   # Just log and move on
   log_error(e.message)
@@ -30,12 +46,13 @@ class TransferProcessingJob < ApplicationJob
 end
 ```
 
+<!--
+
 *Problems with this approach:*
 - If cross-border transfer succeeds but ledger updates fail, we've moved money but our records are wrong
 - If a job fails and retries, we might get different exchange rates or duplicate compliance checks
 - Debugging across 7+ connected jobs with no centralized state tracking was nearly impossible
 
-<!--
 **What We Started With:**
 When I joined Loop Card, we had a Rails monolith coordinating everything through Sidekiq jobs. Now, Sidekiq is great for many use cases, but coordinating financial workflows across multiple services? That's where the limitations become painful.
 

@@ -8,10 +8,13 @@ layout: default
 
 ### New Approach with Temporal
 
-- ✅ Execution continues despite failures
-- ✅ Automatic retries built-in
-- ✅ Workers can restart seamlessly
-- ✅ Built-in compensation for failures
+✅ Execution continues despite failures
+
+✅ Automatic retries built-in
+
+✅ Workers can restart seamlessly
+
+✅ Built-in compensation for failures
 
 <!--
 **Explaining the Architecture:**
