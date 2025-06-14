@@ -49,20 +49,25 @@ end
 
 
 <!--
-**What We Started With:**
-When I joined Loop Card, we had a Rails monolith coordinating everything through Sidekiq jobs. Now, Sidekiq is great for many use cases, but coordinating financial workflows across multiple services? That's where the limitations become painful.
+**Speaker Notes - Original Implementation:**
 
-**What Actually Happened:**
-This looks clean, but in production it was a nightmare:
+- Begin with acknowledgment: "Let me be clear - this wasn't a poorly designed system. It used all the standard Rails best practices with state machines and Sidekiq."
 
-**Partial Failures:** What if capture succeeds but ledger update fails? We've charged the customer but our books are wrong.
+- Point to the code: "This is a simplified version of what we had. A transaction record with states, Sidekiq workers to process each step, state machines to track progress."
 
-**Retry Hell:** Job fails and retries. Now we have a different exchange rate, duplicate fraud checks, confused state everywhere.
+- Share a specific failure story: "We had a real incident where a $47,000 payment got stuck halfway through processing. The Sidekiq job timed out after 25 seconds during a bank API call, but the bank actually processed the transaction. Because the job failed, our system thought the payment failed, but the money had actually moved."
 
-**No Visibility:** Payment failed? Great, check Redis, check the database, check logs from 6 different services. Good luck figuring out where it broke.
+- Explain the technical limitations:
+  * "Sidekiq has a 25-second default timeout - but banking APIs can take minutes to respond"
+  * "When a Sidekiq job restarts, it loses all in-memory state from the previous run"
+  * "There's no built-in mechanism for coordinating multiple jobs in a sequence"
+  * "Custom error handling for every possible failure path created extremely complex code"
 
-**Lost Money:** We actually lost money to partial failures. Pre-auth succeeded, capture failed, money stuck in limbo for days.
+- Talk about scaling issues: "As we added more payment types and currencies, the state machine grew exponentially complex. Every new payment method doubled the number of edge cases."
 
-**Why We Needed Something Better:**
-The fundamental issue: we were trying to coordinate stateful workflows across multiple services using a tool designed for stateless background jobs.
+- Humanize the impact: "For a fintech, these weren't just technical issues - they affected real people's money and our reputation. We needed better reliability guarantees."
+
+- Frame the transition: "We needed to find a solution specifically designed for stateful, long-running workflows that could survive process crashes and system outages."
+
+- Time target: About 90 seconds - this bridges the problem statement to the solution
 -->

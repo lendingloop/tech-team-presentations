@@ -19,34 +19,28 @@ layout: default
 ✓ **Pragmatic Complexity**: Doable without an army of DevOps engineers
 
 <!--
-**The Mandate:**
-After Q4's $47k loss incident, our CTO gave us a clear mandate: find a solution that guarantees workflow reliability. We had 3 weeks to research and recommend.
+**Speaker Notes - The Search for a Solution:**
 
-**What We Evaluated:**
-We looked at several options:
+- Begin with the business urgency: "After that $47,000 payment incident I mentioned, our leadership team gave us a clear mandate: find a solution that guarantees payment reliability, and do it quickly."
 
-**AWS Step Functions:** Great if you're all-in on AWS, but we're multi-cloud and local development was painful.
+- Frame the evaluation process: "We established these six critical requirements you see on the slide. Any solution had to meet all of them - not just some."
 
-**Apache Airflow:** Built for batch ETL workflows, not real-time payment processing.
+- Walk through each requirement with context:
+  * "Reliable coordination meant ensuring all steps complete successfully or roll back completely - no partial transactions"
+  * "Self-healing meant automatic recovery from failures without human intervention"
+  * "X-ray vision meant complete visibility into exactly where every payment is at every moment"
+  * "Bulletproof consistency meant identical behavior in development and production"
+  * "Ruby-friendly was non-negotiable - we weren't going to rewrite our entire stack"
+  * "Pragmatic complexity meant our small team could actually operate it successfully"
 
-**Cadence:** The predecessor to Temporal, but operational complexity was too high for our team size.
+- Add color on the evaluation process: "We spent three intensive weeks researching options. Our team evaluated several solutions including custom-built orchestrators, AWS Step Functions, and Apache Airflow."
 
-**Custom Solution:** We sketched out building our own orchestrator. Would take 6+ months and we'd be maintaining complex distributed systems code instead of focusing on payments.
+- Highlight the key factors in choosing Temporal: "What ultimately sold us on Temporal were three things:"
+  * "First, a production-ready Ruby SDK that worked with our existing stack"
+  * "Second, time-travel debugging that lets us see exactly what happened in every workflow"
+  * "Third, automatic compensation patterns that solve our partial failure problems"
 
-**Why Temporal Won:**
-Temporal kept coming up in our research. Three things sold us:
+- Share the proof of concept results: "After our evaluation, we ran a 2-week POC migrating our simplest payment flow. The results were immediate: zero partial failures, complete workflow visibility, and developers actually enjoying the experience."
 
-1. Production-ready Ruby SDK. We could start building immediately without rewriting existing services.
-2. Time-travel debugging. When workflows fail, you can see exactly what happened at every step. No more log archaeology.
-3. Automatic compensation. Temporal can automatically undo completed steps when later steps fail. This directly solved our partial failure problem.
-
-**Social Proof:**
-Plus, companies like Uber, Netflix, and Stripe use Temporal for similar workflows. If it's good enough for Stripe's payment processing...
-
-**The Proof of Concept:**
-We ran a 2-week POC migrating our simplest payment flow. Results were immediate:
-- Zero partial failures during testing
-- Complete workflow visibility  
-- Developers actually enjoyed working with it
-- Easy local development and testing
+- Time target: About 90 seconds - this introduces why Temporal was chosen before diving into how it works
 -->

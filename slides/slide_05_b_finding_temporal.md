@@ -19,34 +19,39 @@ layout: default
 **Horizontal scalability** - *Handles our growth without breaking a sweat*
 
 <!--
-**The Mandate:**
-After Q4's $47k loss incident, our CTO gave us a clear mandate: find a solution that guarantees workflow reliability. We had 3 weeks to research and recommend.
+**Speaker Notes - Why Temporal:**
 
-**What We Evaluated:**
-We looked at several options:
+- Start with the broader context: "Let me walk you through the specific reasons why Temporal was the right fit for our payment processing challenges."
 
-**AWS Step Functions:** Great if you're all-in on AWS, but we're multi-cloud and local development was painful.
+- For Production-ready Ruby SDK:
+  * "This was a major selling point - we have a substantial Ruby codebase and team expertise in Ruby"
+  * "The SDK is well-maintained and feature-complete, with excellent documentation"
+  * "We didn't have to rewrite our business logic or service boundaries to adopt Temporal"
 
-**Apache Airflow:** Built for batch ETL workflows, not real-time payment processing.
+- For Time-travel debugging:
+  * "This is a game-changer for troubleshooting payment issues"
+  * "Example: When a customer reported a failed transaction, instead of digging through logs across multiple systems, we could see the exact sequence of events in the Temporal UI"
+  * "This reduced our debugging time from hours to minutes"
 
-**Cadence:** The predecessor to Temporal, but operational complexity was too high for our team size.
+- For Automatic compensation:
+  * "This directly addressed our partial failure problem"
+  * "If step 4 of a 5-step process fails, Temporal provides patterns to automatically undo steps 1-3"
+  * "Example: If we debit CAD but can't credit USD, we can automatically refund the CAD"
 
-**Custom Solution:** We sketched out building our own orchestrator. Would take 6+ months and we'd be maintaining complex distributed systems code instead of focusing on payments.
+- For Durable execution:
+  * "Even if the entire service crashes midway through a workflow, Temporal picks up exactly where it left off"
+  * "This was incredible for our team - no more lost state when services restart"
 
-**Why Temporal Won:**
-Temporal kept coming up in our research. Three things sold us:
+- For Built-in versioning:
+  * "We can deploy new versions of workflows without disrupting in-flight transactions"
+  * "This means we can ship improvements continuously without worrying about payments in progress"
 
-1. Production-ready Ruby SDK. We could start building immediately without rewriting existing services.
-2. Time-travel debugging. When workflows fail, you can see exactly what happened at every step. No more log archaeology.
-3. Automatic compensation. Temporal can automatically undo completed steps when later steps fail. This directly solved our partial failure problem.
+- For Scalability:
+  * "As we've grown 300% in transaction volume, Temporal has scaled horizontally without issues"
 
-**Social Proof:**
-Plus, companies like Uber, Netflix, and Stripe use Temporal for similar workflows. If it's good enough for Stripe's payment processing...
+- Mention social proof: "Companies like Stripe, Datadog, Netflix, and Snap use Temporal for similar critical workflows. This gave us confidence in our choice."
 
-**The Proof of Concept:**
-We ran a 2-week POC migrating our simplest payment flow. Results were immediate:
-- Zero partial failures during testing
-- Complete workflow visibility  
-- Developers actually enjoyed working with it
-- Easy local development and testing
+- Close with the outcome: "After a successful proof of concept, every new payment flow we've built has used Temporal, and we've seen zero partial failures in production."
+
+- Time target: About 2 minutes - this is a crucial explanation of the core technology choice
 -->

@@ -20,32 +20,29 @@ layout: default
 
 
 <!--
-**Why Payments Are Hard:**
-- Payments seem simple on the surface - money moves from A to B
-- But in reality, they're one of the hardest distributed systems problems
-- Each payment touches 5+ services, each with their own failure modes
-- Add multi-currency and it gets even more complex
+**Speaker Notes - Payment System Challenges:**
 
-**The Multi-Step Process:**
-- Authorization: Can this card be charged? Is it valid?
-- Reserve funds: Hold the money but don't move it yet
-- Process payment: Actually move the money
-- Update ledgers: Record the transaction in accounting systems
-- Notify systems: Tell everyone the payment happened
-- Each step can fail independently
+- Start with a relatable analogy: "Payment systems are like an orchestra where every instrument needs to play perfectly in sync - but some musicians are in different time zones and occasionally lose internet connection."
 
-**Cross-Border Complexity:**
-- With traditional systems, you need to manage currency conversion
-- Exchange rates fluctuate by the second
-- Settlement times vary by currency pair
-- Compliance requirements differ by country
-- Reconciliation becomes exponentially more complex
+- For Multiple Systems Working Together:
+  * "At Loop, a single payment might touch our Rails app, banking partners' APIs, compliance services, and ledger systems"
+  * "Real example: we had a CAD-to-USD payment that succeeded in debiting CAD but failed halfway through crediting USD - leaving money in limbo"
 
-**The Reliability Challenge:**
-- For payments, five nines (99.999%) reliability is the minimum acceptable
-- That's just 5 minutes of downtime per year
-- With ~20 API calls per transaction, we need systems that can recover from failures
-- Every failed payment needs perfect compensation - leaving money in limbo is not an option
+- For Time-Sensitive Processes:
+  * "FX rates are valid for mere seconds, but bank settlement can take days"
+  * "We once had a payment stuck for 24 hours due to an API timeout, but the bank had already processed it - creating reconciliation headaches"
 
-## Timing: 90 seconds
+- For Handling Failures:
+  * "If a payment fails midway through, we need transaction compensation - not just retries"
+  * "Example: if we've charged a card but our bank transfer fails, we need to automatically refund the card"
+
+- For Complete Tracking:
+  * "Every payment needs an audit trail that shows exactly what happened and when"
+  * "We need to know which step failed, why it failed, and what compensating actions were taken"
+
+- Emphasize the reliability requirements: "In fintech, 99.9% reliability means 8.7 hours of downtime per year - that's thousands of failed payments and unhappy customers. We need better."
+
+- Close with the challenge: "Our search for a solution had to address all these challenges while being maintainable by our small team."
+
+- Time target: About 2 minutes - this slide builds the case for why we needed a specialized solution
 -->

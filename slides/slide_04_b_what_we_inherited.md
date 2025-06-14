@@ -48,26 +48,23 @@ end
 ```
 
 <!--
+**Speaker Notes - Real-World Challenges:**
 
-*Problems with this approach:*
-- If cross-border transfer succeeds but ledger updates fail, we've moved money but our records are wrong
-- If a job fails and retries, we might get different exchange rates or duplicate compliance checks
-- Debugging across 7+ connected jobs with no centralized state tracking was nearly impossible
+- Point to the code: "Looking at this simplified example, you can immediately spot the issues - we're queuing multiple jobs independently with no coordination between them."
 
-**What We Started With:**
-When I joined Loop Card, we had a Rails monolith coordinating everything through Sidekiq jobs. Now, Sidekiq is great for many use cases, but coordinating financial workflows across multiple services? That's where the limitations become painful.
+- Explain why this approach fails for complex flows: "In isolation, each piece worked correctly. But in production, we regularly encountered partial successes where some parts completed while others failed."
 
-**What Actually Happened:**
-This looks clean, but in production it was a nightmare:
+- Share a specific failure case: "Here's what would happen: A customer exchanges CAD to USD. Our system debits their CAD balance and updates our ledger. Then it tries to execute the USD credit but the external bank API times out. Sidekiq retries the job, but now we've already debited the CAD - potentially creating duplicate debits or orphaned transactions."
 
-**Partial Failures:** What if capture succeeds but ledger update fails? We've charged the customer but our books are wrong.
+- Highlight the visibility issue with a real example: "When a customer called saying their exchange didn't complete, our support team had to coordinate with engineering to trace through multiple systems. It might take hours to figure out exactly what happened and at which step it failed."
 
-**Retry Hell:** Job fails and retries. Now we have a different exchange rate, duplicate fraud checks, confused state everywhere.
+- Explain the recovery complexity: "Even with retry mechanisms, inconsistent states between systems meant frequent manual intervention. If a job failed after executing some API calls but before updating our database, we'd have to manually reconcile the state."
 
-**No Visibility:** Payment failed? Great, check Redis, check the database, check logs from 6 different services. Good luck figuring out where it broke.
+- Mention scaling problems: "As we added more payment types and more banking partners, the complexity increased exponentially. Each new integration added another potential failure point."
 
-**Lost Money:** We actually lost money to partial failures. Pre-auth succeeded, capture failed, money stuck in limbo for days.
+- Connect to the business impact: "These technical challenges directly affected our customers and our ability to scale reliably. We had to spend too much engineering time playing detective and fixing broken transactions rather than building new features."
 
-**Why We Needed Something Better:**
-The fundamental issue: we were trying to coordinate stateful workflows across multiple services using a tool designed for stateless background jobs.
+- End with the key insight: "We realized we were using the wrong tool for the job. Sidekiq is great for independent background tasks, but for coordinating complex, stateful workflows across multiple systems, we needed something purpose-built."
+
+- Time target: About 90 seconds, with emphasis on real examples that demonstrate the concrete challenges
 -->

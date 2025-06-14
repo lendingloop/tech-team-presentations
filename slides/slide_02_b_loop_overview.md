@@ -20,21 +20,17 @@ Complete financial toolkit for global business
 
 
 <!--
-**Speaker Notes:**
+**Speaker Notes - Product Context:**
 
-Why This Matters:
-Canada does $965 billion in cross-border trade annually. Think about every Canadian business dealing with:
-- Tech companies paying for US SaaS
-- E-commerce selling cross-border
-- Professional services with global clients
+- Opening line: "Our product suite addresses a critical problem for Canadian businesses - managing global money flows efficiently."
 
-The Scale:
-We're not just building another credit card. We're building financial infrastructure that lets Canadian businesses compete globally without bleeding money on FX.
+- Use a concrete example: "When a Canadian startup pays for AWS in USD, Stripe in USD, and hires contractors in Europe, they're typically losing 3% on every transaction. That adds up to tens of thousands per year."
 
-Additional Speaker Notes:
-- Use specific, relatable examples (AWS, Stripe)
-- Highlight the unfair advantages bigger companies have
-- Emphasize the wasted time/money/complexity of manual reconciliation
-- Use the $965B number for impact
-- Position as infrastructure, not just a product
+- Connect to technical complexity: "Each of these solutions requires orchestrating multi-step payment flows across different banking systems. This is where our technical challenge begins."
+
+- Emphasize the impact: "Canada does $965 billion in cross-border trade annually. The technical solution I'm about to show you impacts businesses across the entire economy."
+
+- Transition to technical focus: "Now let's look at what makes these payment flows so technically challenging to implement reliably."
+
+- Time target: About 75 seconds - provide enough context but move quickly to the technical content
 -->

@@ -17,33 +17,30 @@ media: "transaction_life.png"
 
 
 <!--
-**The Complexity:**
-Here's what I learned when I joined Loop Card: multi-currency payments are deceptively complex.
+**Speaker Notes - The Money Journey:**
 
-What sounds like 'process a payment' actually involves 10+ discrete steps across 6-8 different services, each with their own failure modes.
+- Reference the image: "This diagram gives us a visual representation of what happens during a currency exchange. Each color represents a different system or service boundary."
 
-**Real Stakes:**
-This isn't a typical CRUD app where a failed request means someone has to click refresh. This is distributed systems with other people's money on the line.
+- For Validation & Routing:
+  * "First, we authenticate the user and verify they have sufficient funds"
+  * "We check their transaction limits and compliance flags"
+  * "Based on amount, user tier, and other factors, we select the optimal banking partner"
 
-Every transaction touches:
-- Payment gateways in multiple countries
-- Real-time foreign exchange systems
-- Fraud detection services
-- Multiple compliance frameworks
-- Banking infrastructure across borders
-- Accounting systems with multi-currency requirements
+- For Currency Operations:
+  * "This is where we connect to external FX providers to get real-time rates"
+  * "We need to lock in that rate - which is only valid for seconds - while the rest of the transaction proceeds"
+  * "If any subsequent step fails, we need to release or compensate for that rate lock"
 
-**What Can Go Wrong:**
-And here's the thing: each step can fail independently:
-- FX service timeout during rate lookup
-- Payment gateway pre-auth succeeds but capture fails
-- Compliance check takes too long and times out
-- Network partition between services
-- External API rate limits
-- Database deadlocks during concurrent updates
+- For Cross-Border Orchestration:
+  * "Now we coordinate actual movement of funds between banking systems"
+  * "This involves multiple API calls with potential timeouts and network failures"
+  * "We need to track the transaction state across multiple external systems"
 
-**The Challenge:**
-The fundamental challenge is coordination. How do you ensure that either ALL steps succeed, or ALL steps are safely rolled back? How do you debug failures across 8 different services? How do you retry safely without double-charging customers?
+- For Financial Record-Keeping:
+  * "Finally, we update our internal ledgers and generate audit records"
+  * "This needs to be atomic with the transaction itself - partial updates create accounting nightmares"
 
-Traditional job queues weren't designed for this level of coordination and state management.
+- Technical insight: "What makes this challenging is that each step could take seconds or minutes, creating a long-running transaction that traditional databases can't handle well."
+
+- Time target: About 90 seconds - this provides the technical context for why we needed Temporal
 -->

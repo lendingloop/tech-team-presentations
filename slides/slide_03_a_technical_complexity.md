@@ -15,33 +15,24 @@ That single button click triggers **multiple actions** and **multiple transactio
 **Each with its own failure modes, timeout risks, and consistency requirements.**
 
 <!--
-**The Complexity:**
-Here's what I learned when I joined Loop Card: multi-currency payments are deceptively complex.
+**Speaker Notes - The Payment Complexity:**
 
-What sounds like 'process a payment' actually involves 10+ discrete steps across 6-8 different services, each with their own failure modes.
+- Start with impact: "This slide is where we transition from business context to technical challenges. What sounds trivially simple from a user perspective - a currency exchange - is actually a complex orchestration problem."
 
-**Real Stakes:**
-This isn't a typical CRUD app where a failed request means someone has to click refresh. This is distributed systems with other people's money on the line.
+- Use contrast for effect: "What the customer sees: one button. What our systems handle: a cascade of transactions across multiple banking networks, jurisdictions, and regulatory frameworks."
 
-Every transaction touches:
-- Payment gateways in multiple countries
-- Real-time foreign exchange systems
-- Fraud detection services
-- Multiple compliance frameworks
-- Banking infrastructure across borders
-- Accounting systems with multi-currency requirements
+- Get specific with technical details:
+  * "Let me walk through what actually happens when someone exchanges $5,000 CAD to USD:"
+  * "First, we need to lock in an FX rate, which requires calling an external rate provider"
+  * "Then we need to verify sufficient CAD balance, initiate CAD withdrawal, and convert to USD"
+  * "Then route the USD to the appropriate banking partner, which varies by user type and amount"
+  * "All while keeping compliance checks running in parallel and respecting bank cutoff times"
 
-**What Can Go Wrong:**
-And here's the thing: each step can fail independently:
-- FX service timeout during rate lookup
-- Payment gateway pre-auth succeeds but capture fails
-- Compliance check takes too long and times out
-- Network partition between services
-- External API rate limits
-- Database deadlocks during concurrent updates
+- Emphasize the failure modes: "Each of these steps has its own timeouts, retry policies, and failure modes. And with money, we can't afford to be wrong."
 
-**The Challenge:**
-The fundamental challenge is coordination. How do you ensure that either ALL steps succeed, or ALL steps are safely rolled back? How do you debug failures across 8 different services? How do you retry safely without double-charging customers?
+- Build to the problem statement: "Our core technical problem was this: How do you ensure that either ALL steps succeed, or ALL steps are safely rolled back? And how do you debug failures across distributed services?"
 
-Traditional job queues weren't designed for this level of coordination and state management.
+- Foreshadow the solution: "Traditional job queues like Sidekiq weren't designed for this level of coordination and state management. We needed something better."
+
+- Time target: This is a crucial slide - spend about 2 minutes here to make sure everyone understands the problem space
 -->

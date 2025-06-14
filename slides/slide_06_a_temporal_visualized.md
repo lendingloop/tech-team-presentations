@@ -15,27 +15,27 @@ Temporal is an open-source platform that makes building reliable applications ac
 - **SDK:** Write normal Ruby code that becomes resilient
 
 <!--
-**Explaining the Architecture:**
-- Temporal has a unique architecture that preserves workflow state even when workers fail
-- The Temporal server acts as the "brain" - storing workflow state and history
-- Workers are stateless and can be restarted at any time
-- This provides durability that's impossible with traditional job processors
+**Speaker Notes - Introducing Temporal:**
 
-**Key Advantages Visualized:**
-- In traditional architecture: If a worker processing a payment dies mid-transaction, you lose state
-- With Temporal: The workflow continues exactly where it left off when a new worker starts
-- This is what makes it so powerful for payment processing - we get true durability for free
+- Start with an approachable introduction: "So what exactly is Temporal? I like to think of it as the reliability layer that our payment systems were missing."
 
-**The Timeline View:**
-- Each workflow execution is recorded as an immutable history of events
-- Activities can be executed sequentially or in parallel
-- Failed activities are automatically retried based on configurable policies
-- The entire execution history is queryable and visible in the Temporal UI
+- Define the core concepts with Loop examples:
+  * "A Workflow in Temporal is like your payment orchestrator - it contains the entire logic of moving money from point A to point B, and it's guaranteed to execute correctly even if machines crash."
+  * "Activities are the individual tasks within that flow - like 'debit customer account', 'apply currency exchange', or 'credit recipient account'. Each can be retried independently if they fail."
+  * "Workers are the processes that actually execute your code - they pick up tasks, run them, and report back results. If a worker dies, another one simply picks up where it left off."
+  * "And the SDK lets us write all this in Ruby, our team's language of choice. We're writing normal Ruby code that magically becomes resilient."
 
-**Technical Note:**
-- The charts show how Temporal's "event sourcing" approach is fundamentally different
-- Rather than storing current state, it records the full history of events
-- This allows for time-travel debugging and complete auditability
+- Point to the diagram: "This diagram visualizes a key Temporal strength - automatic retries with backoff. Notice how if a single activity fails, Temporal automatically retries it with configurable backoff, while maintaining the overall workflow state."
 
-## Timing: 90 seconds
+- Explain the fundamental architecture difference: "What makes Temporal different from Sidekiq or other job systems is this separation between the 'brain' - the Temporal server that tracks workflow state - and the 'muscles' - workers that execute the actual code."
+
+- Share a real example: "When our AWS RDS instance went down for maintenance last month, all our payment workers crashed. In the old system, we'd have lost track of hundreds of in-progress payments. With Temporal, when new workers came online, every single workflow continued precisely where it left off - no lost state, no duplicate operations."
+
+- Highlight the business impact: "This is game-changing for financial transactions. We no longer worry about partial failures or inconsistent state - Temporal gives us durability for free."
+
+- End with the visibility aspect: "And the cherry on top? We can see exactly what's happening in every workflow through the Temporal UI - which steps completed, which are pending, which failed and why. Gone are the days of digging through logs across multiple systems."
+
+- Transition: "In the next slides, I'll show you exactly how we implemented this for our payment flows."
+
+- Time target: 2 minutes - this is a crucial foundation to understand before diving into code examples
 -->

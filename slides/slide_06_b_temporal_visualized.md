@@ -17,27 +17,31 @@ layout: default
 ❌ Custom code needed to fix failures
 
 <!--
-**Explaining the Architecture:**
-- Temporal has a unique architecture that preserves workflow state even when workers fail
-- The Temporal server acts as the "brain" - storing workflow state and history
-- Workers are stateless and can be restarted at any time
-- This provides durability that's impossible with traditional job processors
+**Speaker Notes - Traditional Background Job Pain Points:**
 
-**Key Advantages Visualized:**
-- In traditional architecture: If a worker processing a payment dies mid-transaction, you lose state
-- With Temporal: The workflow continues exactly where it left off when a new worker starts
-- This is what makes it so powerful for payment processing - we get true durability for free
+- Start by emphasizing the context: "Before we see how Temporal solves these problems, let's identify why traditional background job systems like Sidekiq kept causing us headaches for payment processing."
 
-**The Timeline View:**
-- Each workflow execution is recorded as an immutable history of events
-- Activities can be executed sequentially or in parallel
-- Failed activities are automatically retried based on configurable policies
-- The entire execution history is queryable and visible in the Temporal UI
+- For state stored in regular database:
+  * "When implementing multi-step workflows with Sidekiq, we had to constantly update transaction records in our database to track progress."
+  * "Example: We needed custom tables with columns like 'step_completed', 'retry_count', and 'last_error' just to know where things stood."
+  * "This meant our database became both the source of truth AND the workflow state tracker - mixing concerns and creating complexity."
 
-**Technical Note:**
-- The charts show how Temporal's "event sourcing" approach is fundamentally different
-- Rather than storing current state, it records the full history of events
-- This allows for time-travel debugging and complete auditability
+- For progress lost if server crashes:
+  * "If a Sidekiq worker was processing a payment and the server crashed, all in-memory state was instantly gone."
+  * "Real example: During an AWS zone outage, we had dozens of payments where money had left the source account but hadn't arrived at the destination - and we had to manually reconcile each one."
+  * "The worst part was not knowing exactly which step had completed before the crash - leading to hours of forensic work."
 
-## Timing: 90 seconds
+- For developers writing retry logic:
+  * "Every payment endpoint integration required custom retry logic with different timeouts and error handling."
+  * "We had payment code littered with begin/rescue blocks, retry counts, and exponential backoffs - all implemented slightly differently across services."
+  * "This inconsistency led to bugs where some services would retry infinitely while others would give up too soon."
+
+- For custom code needed to fix failures:
+  * "When a payment got stuck, our on-call engineers needed to write one-off scripts to diagnose and fix the state."
+  * "We literally had a folder called 'rescue_scripts' with dozens of Ruby files to handle different types of payment failures."
+  * "This was error-prone, time-consuming, and completely unsustainable as we scaled our transaction volume."
+
+- Close with the real business impact: "These technical limitations directly affected our customers and our business. Recovery from failures took too long, inconsistent states led to customer support issues, and engineering time was diverted from building new features to fixing workflow problems."
+
+- Time target: 60-75 seconds - a brisk pace focusing on the problems that will be solved
 -->

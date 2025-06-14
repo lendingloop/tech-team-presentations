@@ -20,32 +20,30 @@ layout: default
 
 
 <!--
-**Why Payments Are Hard:**
-- Payments seem simple on the surface - money moves from A to B
-- But in reality, they're one of the hardest distributed systems problems
-- Each payment touches 5+ services, each with their own failure modes
-- Add multi-currency and it gets even more complex
+**Speaker Notes - Solution Requirements:**
 
-**The Multi-Step Process:**
-- Authorization: Can this card be charged? Is it valid?
-- Reserve funds: Hold the money but don't move it yet
-- Process payment: Actually move the money
-- Update ledgers: Record the transaction in accounting systems
-- Notify systems: Tell everyone the payment happened
-- Each step can fail independently
+- Start with a summary of the challenge: "After understanding the complexity of our payment flows, we defined what an ideal solution would need to provide."
 
-**Cross-Border Complexity:**
-- With traditional systems, you need to manage currency conversion
-- Exchange rates fluctuate by the second
-- Settlement times vary by currency pair
-- Compliance requirements differ by country
-- Reconciliation becomes exponentially more complex
+- For Coordinating All Steps Perfectly:
+  * "We needed a system that could track the state of a payment across all these different services"
+  * "If step 3 succeeds but step 4 fails, the system needs to know exactly where things left off"
+  * "Traditional background job systems like Sidekiq don't maintain this kind of state across job runs"
 
-**The Reliability Challenge:**
-- For payments, five nines (99.999%) reliability is the minimum acceptable
-- That's just 5 minutes of downtime per year
-- With ~20 API calls per transaction, we need systems that can recover from failures
-- Every failed payment needs perfect compensation - leaving money in limbo is not an option
+- For Automatically Fixing Failures:
+  * "With money, retry isn't enough - sometimes we need compensation actions"
+  * "Example: If we've already debited a customer's account but the transfer fails, we need to credit them back automatically"
+  * "This requires sophisticated error handling that understands the business context"
 
-## Timing: 90 seconds
+- For Tracking Every Action:
+  * "Every step of a payment flow needs perfect visibility - both for debugging and for compliance"
+  * "We need to know not just what happened, but when it happened and in what order"
+  * "This audit trail needs to be built into the system, not added as an afterthought"
+
+- For Working Across Currencies:
+  * "Multi-currency adds another dimension of complexity with exchange rates and international banking partners"
+  * "We need a system that can handle the additional steps and contingencies of cross-border payments"
+
+- Transition to solution: "This set of requirements led us to evaluate several different approaches before finding Temporal - which I'll explain next."
+
+- Time target: About 90 seconds - this slide completes the problem statement and sets up the solution
 -->

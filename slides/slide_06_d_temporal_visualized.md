@@ -29,27 +29,31 @@ Use professional fintech-style graphics with a clean, modern look suitable for a
 
 
 <!--
-**Explaining the Architecture:**
-- Temporal has a unique architecture that preserves workflow state even when workers fail
-- The Temporal server acts as the "brain" - storing workflow state and history
-- Workers are stateless and can be restarted at any time
-- This provides durability that's impossible with traditional job processors
+**Speaker Notes - Direct Comparison:**
 
-**Key Advantages Visualized:**
-- In traditional architecture: If a worker processing a payment dies mid-transaction, you lose state
-- With Temporal: The workflow continues exactly where it left off when a new worker starts
-- This is what makes it so powerful for payment processing - we get true durability for free
+- Start with the side-by-side approach: "Let me break down why the architectural differences between Sidekiq and Temporal matter so much for payment reliability. This table highlights four key differences that directly affected our business."
 
-**The Timeline View:**
-- Each workflow execution is recorded as an immutable history of events
-- Activities can be executed sequentially or in parallel
-- Failed activities are automatically retried based on configurable policies
-- The entire execution history is queryable and visible in the Temporal UI
+- For remembering workflow context:
+  * "In Sidekiq, each job is isolated - it doesn't know about the other jobs in your workflow"
+  * "Example: When processing a currency exchange, if the final settlement job fails, the new job has no idea that we already checked compliance and captured funds"
+  * "With Temporal, the entire workflow context is preserved - when a retry happens, all previous steps and their data are still accessible"
 
-**Technical Note:**
-- The charts show how Temporal's "event sourcing" approach is fundamentally different
-- Rather than storing current state, it records the full history of events
-- This allows for time-travel debugging and complete auditability
+- For continuing after crashes:
+  * "This is a crucial difference for payment systems - if a Sidekiq worker crashes mid-execution, the progress is gone"
+  * "Real case: During a Redis outage, we had dozens of currency exchanges where the source was debited but the destination credit failed. When systems recovered, we had to manually identify and complete these transactions."
+  * "With Temporal, if a worker crashes, when a new worker comes online, it picks up exactly where the previous one left off - not from the beginning, not from some arbitrary checkpoint"
 
-## Timing: 90 seconds
+- For workflow visibility:
+  * "With Sidekiq, tracking a payment across multiple jobs required custom logging, database queries, and often guesswork"
+  * "Show the audience: With Temporal, we can see the entire payment journey in one place - which steps completed, which failed, which are pending - all in real-time"
+  * "This visibility has cut our troubleshooting time from hours to minutes"
+
+- For automated compensation:
+  * "When things failed with Sidekiq, we had to manually write scripts to detect and fix partial transfers"
+  * "With Temporal, we define compensation workflows once - if a later step fails, we can automatically trigger cleanup activities like refunds"
+  * "This has virtually eliminated the risk of money getting stuck in an intermediate state"
+
+- End with the business impact: "To put this in perspective: Before Temporal, our team was spending approximately 15 hours per week handling payment failures manually. After Temporal, this dropped to less than 1 hour per week - freeing our team to build new features instead of fighting fires."
+
+- Time target: 90 seconds - this is a crucial comparison slide that bridges the problem and solution
 -->

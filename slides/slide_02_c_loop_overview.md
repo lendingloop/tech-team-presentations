@@ -17,15 +17,17 @@ A lean (but mighty!) team of ~10 engineers building global financial infrastruct
 
 
 <!--
-**Speaker Notes:**
+**Speaker Notes - Team Context:**
 
-Team Structure:
-- Mix of senior and mid-level engineers
-- Split between backend payment infrastructure and customer-facing features
-- Strong focus on quality and reliability given financial nature
+- Keep this slide brief: "Let me quickly introduce our team before diving into the technical challenges we faced."
 
-Team Experience:
-- Combined decades of experience in fintech, payments, and banking
-- Multiple engineers with prior experience at financial institutions
-- Culture of mentorship and knowledge sharing
+- Emphasize the technical culture: "Despite being small, our team brings deep payment expertise - many of us have worked at major banks and payment processors before."
+
+- Connect team structure to the technical challenge: "Our payment backend specialists were the ones who identified the need for a more reliable workflow engine for our payment processing."
+
+- Mention the hands-on approach: "As a lean team, we can't afford complex solutions that require dedicated teams to maintain. What we build needs to be reliable but also maintainable by a small team."
+
+- Transition hook: "This is why finding the right architecture for our payment processing was so critical."
+
+- Time target: About 45 seconds - this slide provides context but isn't the main focus
 -->

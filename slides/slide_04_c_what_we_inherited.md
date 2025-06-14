@@ -36,16 +36,21 @@ end
 ```
 
 <!--
-**What We Started With:**
-When I joined Loop Card, we had a Rails monolith coordinating everything through Sidekiq jobs. Now, Sidekiq is great for many use cases, but coordinating financial workflows across multiple services? That's where the limitations become painful.
+**Speaker Notes - Fundamental Limitations:**
 
-**What Actually Happened:**
-This looks clean, but in production it was a nightmare:
+- Draw attention to the code example: "This is a simplified version of our error handling. Look at how limited our options are when something goes wrong."
 
-**Partial Failures:** What if capture succeeds but ledger update fails? We've charged the customer but our books are wrong.
+- Highlight the technical constraints: "In a standard Rails/Sidekiq setup, each job has no knowledge of the overall workflow. When a job fails, it can only retry itself - it can't coordinate with other parts of the transaction."
 
-**Retry Hell:** Job fails and retries. Now we have a different exchange rate, duplicate fraud checks, confused state everywhere.
+- Explain the business continuity issue: "When a payment failed halfway through, even with retries, we still needed engineers to manually investigate and fix the issue. This isn't sustainable at scale."
 
-**Why We Needed Something Better:**
-The fundamental issue: we were trying to coordinate stateful workflows across multiple services using a tool designed for stateless background jobs.
+- Give a concrete example: "Imagine a customer making a $10,000 CAD to USD exchange. Our system debits CAD, gets an FX rate, starts the USD credit - then the bank API times out. When the job retries an hour later, the FX rate has changed, and we now have a mismatch between what we debited and what we can credit."
+
+- Explain the traceability gaps: "With transactions spanning multiple systems, tracking the exact state was incredibly difficult. We built custom dashboards and logging, but still struggled to get a complete picture of every transaction's state."
+
+- Make the key insight clear: "The issue wasn't with our Ruby code or even with Sidekiq itself - it was a fundamental architectural mismatch. We were using a tool designed for independent, stateless background jobs to orchestrate complex, stateful workflows."
+
+- Transition to the solution: "What we needed was a system designed specifically for long-running, stateful workflows - one that could maintain transaction state across failures, provide complete visibility, and handle compensation logic automatically."
+
+- Time target: About 60-90 seconds - this is the final slide before transitioning to the Temporal solution
 -->

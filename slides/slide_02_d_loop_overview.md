@@ -14,15 +14,17 @@ media: "https://media.licdn.com/dms/image/v2/D5622AQEVEyGm6TeKCA/feedshare-shrin
 **Continuous improvement** - We're never satisfied with the status quo
 
 <!--
-**Speaker Notes:**
+**Speaker Notes - Company Values:**
 
-Team Structure:
-- Mix of senior and mid-level engineers
-- Split between backend payment infrastructure and customer-facing features
-- Strong focus on quality and reliability given financial nature
+- Make the values relevant to the technical topic: "Our values directly shaped how we approached our payment infrastructure challenge."
 
-Team Experience:
-- Combined decades of experience in fintech, payments, and banking
-- Multiple engineers with prior experience at financial institutions
-- Culture of mentorship and knowledge sharing
+- Connect to technical decisions: "Moving fast but thoughtfully meant finding a solution that would let us ship quickly but with reliability guarantees."
+
+- Highlight the transparency angle: "Radical transparency guided us to build systems with complete visibility into every transaction step."
+
+- Link to customer impact: "Our customer obsession meant that reliability wasn't optional - businesses depend on our payments going through correctly every time."
+
+- Connect to Temporal: "These values led us to adopt Temporal, which we'll explore in detail shortly."
+
+- Time target: About 30-45 seconds - keep this brief, but connect values to your technical solution
 -->
