@@ -582,6 +582,16 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.9.tgz#50dea3616bc8191fb8e112283b49eaff03e78429"
   integrity sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==
 
+"@fontsource/fira-code@^5.2.6":
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/@fontsource/fira-code/-/fira-code-5.2.6.tgz#bbd724c902f081cf95177cfee8d6049fc854f535"
+  integrity sha512-wCkIpPm0BqlkCPLYeY4Vui96ODmVUV0/GpEe3OfJ4v8EJn/BF2SlyxvarFsTs1CKiGjrO2cXlIZbBrKi9F+hUQ==
+
+"@fontsource/nunito-sans@^5.2.6":
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito-sans/-/nunito-sans-5.2.6.tgz#f7977fc1de069a4022354b2fb353c927077525b1"
+  integrity sha512-f3qQqoZXtJPqhrh1M/CTeFZnRsZj7fEnILmGmbyNdlx9GrddQ3avQWwsa0cnBkG5UFGWvnzcfuJp1s+PNHjBsg==
+
 "@iconify-json/carbon@^1.2.8":
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/@iconify-json/carbon/-/carbon-1.2.8.tgz#fe81b9729f0115448e25d737895d938b23326531"

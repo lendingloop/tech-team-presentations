@@ -3,9 +3,15 @@ theme: penguin
 title: Bulletproof Payments
 layout: intro
 themeConfig:
-  logoHeader: "/loop.svg"
+  logoHeader: "logo_icon_black.png"
   eventLogo: "https://toronto-ruby.com/assets/logo-transparent-38749149ba2ef2757562c163767f96a9d05df6d374ff9f910ddd70e4642366f0.png"
-  eventUrl: "https://toronto-ruby.com/"  
+  eventUrl: "https://toronto-ruby.com/"
+fonts:
+  sans: 'ArticulatCF'
+  local: 'ArticulatCF'
+  provider: none
+fontFamily: 'ArticulatCF'
+
 ---
 
 # The Promise of Bulletproof Payments

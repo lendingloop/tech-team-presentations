@@ -1,0 +1,61 @@
+/* ArticulatCF font definitions */
+@font-face {
+  font-family: 'ArticulatCF';
+  font-style: normal;
+  font-weight: 300; /* Light */
+  font-display: swap;
+  src: url('fonts/ArticulatCF-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  font-style: normal;
+  font-weight: 400; /* Regular */
+  font-display: swap;
+  src: url('fonts/ArticulatCF-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  font-style: normal;
+  font-weight: 500; /* Medium */
+  font-display: swap;
+  src: url('fonts/ArticulatCF-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  font-style: normal;
+  font-weight: 700; /* Bold */
+  font-display: swap;
+  src: url('fonts/ArticulatCF-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  font-style: normal;
+  font-weight: 800; /* Heavy */
+  font-display: swap;
+  src: url('fonts/ArticulatCF-Heavy.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  font-style: normal;
+  font-weight: 100; /* Thin */
+  font-display: swap;
+  src: url('fonts/ArticulatCF-Thin.woff2') format('woff2');
+}
+
+/* Apply ArticulatCF to all elements - This will override the theme */
+:root {
+  --slidev-theme-font-family: 'ArticulatCF', sans-serif !important;
+}
+
+html, body, #app, #slidev-provider, .slidev-layout {
+  font-family: 'ArticulatCF', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, blockquote, div, span {
+  font-family: 'ArticulatCF', sans-serif !important;
+}

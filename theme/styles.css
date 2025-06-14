@@ -1,5 +1,54 @@
 /* Custom Loop theme styles */
 
+/* ArticulatCF 2 Font Family */
+@font-face {
+  font-family: 'ArticulatCF';
+  src: url('/fonts/ArticulatCF-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  src: url('/fonts/ArticulatCF-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  src: url('/fonts/ArticulatCF-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  src: url('/fonts/ArticulatCF-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  src: url('/fonts/ArticulatCF-Heavy.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArticulatCF';
+  src: url('/fonts/ArticulatCF-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --loop-blue: #0048ff;
   --loop-purple: #6941c6;
@@ -10,6 +59,10 @@
 }
 
 /* Global styles */
+html, body {
+  font-family: 'ArticulatCF', sans-serif;
+}
+
 h1 {
   font-weight: 700;
   color: var(--loop-blue);
