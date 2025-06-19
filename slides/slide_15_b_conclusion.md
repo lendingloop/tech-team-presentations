@@ -10,7 +10,9 @@ layout: default
 
 **SDK for Ruby**: github.com/temporalio/sdk-ruby
 
-**Presentation**: github.com/loopfintech/tech-team-presentations
+**Presentation**: https://lendingloop.github.io/tech-team-presentations
+
+**Demo Repository**: https://github.com/lendingloop/temporal_demo
 
 **Contact for Follow-up**: yan@bankonloop.com
 
